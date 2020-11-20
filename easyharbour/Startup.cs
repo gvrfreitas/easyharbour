@@ -12,6 +12,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
+using easyharbour.Common;
+using easyharbour.Dados.Repositorios;
 
 namespace easyharbour
 {
@@ -34,9 +36,12 @@ namespace easyharbour
 
         private void InstanciarConfiguracoesPadrao(IServiceCollection services)
         {
-
+            services.AddTransient<TabuaMareRepositorio, TabuaMareRepositorio>();
             services.AddTransient<ImportacaoRepositorio, ImportacaoRepositorio>();
+
             services.AddTransient<ImportacaoServico, ImportacaoServico>();
+            services.AddTransient<TabuaMareServico, TabuaMareServico>();
+
             services.AddTransient<ClimaServico, ClimaServico>(options => new ClimaServico(Configuration["Clima:Url"], Configuration));
 
             services.AddResponseCompression();
@@ -128,6 +133,7 @@ namespace easyharbour
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseResponseCompression();
+            app.UseCors(Constantes.EasyHarbour);
 
             app.UseMvc();
         }

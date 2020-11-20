@@ -19,7 +19,11 @@ namespace easyharbour
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            WebHost.CreateDefaultBuilder(args)
-                .UseKestrel(options => options.AddServerHeader = false)
-                .UseStartup<Startup>();
+               .UseKestrel(options => options.AddServerHeader = false)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   config.AddEnvironmentVariables(prefix: "EASY_HARBOUR_");
+               })
+               .UseStartup<Startup>();
     }
 }

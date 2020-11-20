@@ -26,7 +26,7 @@ namespace easyharbour.Api.Controllers
         /// </summary>
         /// <param name="file0"></param>
         /// <returns>Lista do horas contendo dados do clima.</returns>
-        [HttpPost]
+        [HttpGet]
         [Route("v1/clima/clima-doze-horas")]
         [SwaggerOperation(OperationId = "3BC9F9FA-946F-49E7-936A-0DCBC3D4EADB")]
         public async Task<IActionResult> UploadFichaComposicao()
