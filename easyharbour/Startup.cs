@@ -39,10 +39,12 @@ namespace easyharbour
         {
             services.AddTransient<TabuaMareRepositorio, TabuaMareRepositorio>();
             services.AddTransient<ImportacaoRepositorio, ImportacaoRepositorio>();
+            services.AddTransient<AtracacaoRepositorio, AtracacaoRepositorio>();
             services.AddTransient<BercoGraoRepositorio, BercoGraoRepositorio>();            
 
             services.AddTransient<ImportacaoServico, ImportacaoServico>();
             services.AddTransient<TabuaMareServico, TabuaMareServico>();
+            services.AddTransient<AtracacaoServico, AtracacaoServico>();
             services.AddTransient<BercoGraoServico, BercoGraoServico>();
             
 

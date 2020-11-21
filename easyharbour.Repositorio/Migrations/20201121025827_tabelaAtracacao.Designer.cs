@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VLI.SIOP.Operacao.Dados;
 
 namespace easyharbour.Dados.Migrations
 {
     [DbContext(typeof(AplicacaoContexto))]
-    partial class AplicacaoContextoModelSnapshot : ModelSnapshot
+    [Migration("20201121025827_tabelaAtracacao")]
+    partial class tabelaAtracacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,10 +33,6 @@ namespace easyharbour.Dados.Migrations
                     b.Property<DateTime>("AvisoChegada");
 
                     b.Property<DateTime?>("Desatracacao");
-
-                    b.Property<bool>("EmOperacao");
-
-                    b.Property<bool>("Fundiado");
 
                     b.Property<string>("Navio");
 
@@ -61,30 +59,6 @@ namespace easyharbour.Dados.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TabuaMares");
-                });
-
-            modelBuilder.Entity("easyharbour.Models.BercoGrao", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CaladoMaximoTrecho");
-
-                    b.Property<double>("CalaodAlta");
-
-                    b.Property<double>("CalaodBaixa");
-
-                    b.Property<double>("Comprimento");
-
-                    b.Property<DateTime>("DataCadastro");
-
-                    b.Property<string>("Nome");
-
-                    b.Property<double>("Prancha");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BercosGraos");
                 });
 
             modelBuilder.Entity("easyharbour.Models.Navio", b =>
