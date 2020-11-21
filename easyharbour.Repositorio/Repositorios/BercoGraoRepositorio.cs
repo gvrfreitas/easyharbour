@@ -43,6 +43,21 @@ namespace easyharbour.Repositorio
         }
 
 
+        public async Task<bool> Excluir(Guid id)
+        {
+            var model = await Contexto.BercosGraos.FindAsync(id);
+
+            if (model == null)
+                throw new RegraDeNegocioException(MensagensSistema.NaoEncontrado);
+
+            Contexto.BercosGraos.Remove(model);
+
+            await Contexto.SaveChangesAsync();
+
+            return true;
+        }
+
+
         private BercoGrao BindToNew(BercoGraoDto dto)
         {
             return new BercoGrao()

@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using easyharbour.Common;
 using easyharbour.Dados.Repositorios;
+using System;
+using System.IO;
 
 namespace easyharbour
 {
@@ -55,7 +57,13 @@ namespace easyharbour
             // Swagger
             services.AddSwaggerGen(options =>
             {
-               
+                var basepath = AppContext.BaseDirectory;
+                var assemblyName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+                var fileName = Path.GetFileName(assemblyName + ".xml");
+
+                options.IncludeXmlComments(Path.Combine(basepath, fileName));
+
+
                 options.DescribeAllEnumsAsStrings();
                 options.EnableAnnotations();
                 options.SwaggerDoc("v1",

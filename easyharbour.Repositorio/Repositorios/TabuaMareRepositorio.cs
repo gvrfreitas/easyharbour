@@ -24,6 +24,33 @@ namespace easyharbour.Dados.Repositorios
                    .ToListAsync();
         }
 
+        public async Task<List<TabuaMareDto>> ObterPorData(DateTime data)
+        {
+            var inicio = DateTime.Parse($"{string.Format("{0:yyyy-MM-dd}", data)} 00:00:00");
+            var fim = DateTime.Parse($"{string.Format("{0:yyyy-MM-dd}", data)} 23:59:59");
+
+            return await Contexto.TabuaMares
+                    .Where(o => o.Data >= inicio && o.Data <= fim)
+                   .Select(o => BindTo(o))
+                   .ToListAsync();
+        }
+
+
+        public async Task<bool> Excluir(Guid id)
+        {
+            var model = await Contexto.TabuaMares.FindAsync(id);
+
+            if (model == null)
+                throw new RegraDeNegocioException(MensagensSistema.NaoEncontrado);
+
+            Contexto.TabuaMares.Remove(model);
+
+            await Contexto.SaveChangesAsync();
+
+            return true;
+        }
+
+
         public async Task<TabuaMareDto> ObterPorId(Guid id)
         {
             var model = await Contexto.TabuaMares.FindAsync(id);

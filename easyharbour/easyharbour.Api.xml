@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>easyharbour.Api</name>
+    </assembly>
+    <members>
+        <member name="M:easyharbour.Api.Controllers.AtracacaoController.Obter">
+            <summary>
+            Realiza a importação das atracações programadas.
+            </summary>
+            <param name="file0">Arquivo CSV.</param>
+            <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.AtracacaoController.ObterNaviosFundiados">
+            <summary>
+            Realiza a importação dos navios fundiados.
+            </summary>
+            <param name="file0">Arquivo CSV.</param>
+            <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.AtracacaoController.ObterNaviosEmOperacao">
+            <summary>
+            Realiza a improtação dos navios em atracacao.
+            </summary>
+            <param name="file0">Arquivo CSV.</param>
+            <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.BercoGraoController.Obter">
+            <summary>
+            Obtém todos os berços cadastrados
+            </summary>
+            <returns>Lista de registros cadastrados no sistema.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.BercoGraoController.ObterPorId(System.Guid)">
+            <summary>
+            Obtém um berço especifico cadastrado no sistema
+            <paramref name="id"> Identificador do registro no sistema</paramref>
+            </summary>
+            <returns>Registro cadastrado no sistema.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.BercoGraoController.Cadastrar(easyharbour.DTO.BercoGraoDto)">
+            <summary>
+            Realiza o cadastro de um berço novo
+            <paramref name="dto"> Json com atributos do registro </paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi cadastrado com sucesso.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.BercoGraoController.Editar(easyharbour.DTO.BercoGraoDto)">
+            <summary>
+            Altera o cadastro de um berço específico
+            <paramref name="dto"> Json com atributos do registro </paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi editado com sucesso.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.BercoGraoController.Excluir(System.Guid)">
+            <summary>
+            Remove um berço cadastrado
+            <paramref name="id"> Identificador do registro no sistema</paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi excluido com sucesso.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.ClimaController.UploadFichaComposicao">
+            <summary>
+            Busca dados do clima para as proximas 12h.
+            </summary>
+            <param name="file0"></param>
+            <returns>Lista do horas contendo dados do clima.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.ImportacaoController.UploadFichaComposicao(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Realiza a improtação das atracações programadas.
+            </summary>
+            <param name="file0">Arquivo CSV.</param>
+            <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.Obter">
+            <summary>
+            Obtém todos os registros de maré cadastrados
+            </summary>
+            <returns>Lista de registros cadastrados no sistema.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.ObterPorData(System.DateTime)">
+            <summary>
+            Obtém os registros de maré de uma data específica
+            <paramref name="data"> Data de referência para a busca</paramref>
+            </summary>
+            <returns>Lista de registros cadastrados no sistema.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.ObterPorId(System.Guid)">
+            <summary>
+            Obtém um registros especifico cadastrado no sistema
+            <paramref name="id"> Identificador do registro no sistema</paramref>
+            </summary>
+            <returns>Registro cadastrado no sistema.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.Cadastrar(easyharbour.DTO.TabuaMareDto)">
+            <summary>
+            Realiza o cadastro de um nível de maré novo
+            <paramref name="dto"> Json com atributos do registro </paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi cadastrado com sucesso.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.Editar(easyharbour.DTO.TabuaMareDto)">
+            <summary>
+            Altera o cadastro de um nível de maré específico
+            <paramref name="dto"> Json com atributos do registro </paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi editado com sucesso.</returns>
+        </member>
+        <member name="M:easyharbour.Api.Controllers.TabuaMareController.Excluir(System.Guid)">
+            <summary>
+            Remove um berço cadastrado
+            <paramref name="id"> Identificador do registro no sistema</paramref>
+            </summary>
+            <returns>Booleano identificando se o item foi excluido com sucesso.</returns>
+        </member>
+    </members>
+</doc>

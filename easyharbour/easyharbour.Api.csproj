@@ -6,6 +6,10 @@
     <UserSecretsId>project-D43BA7A5-8B65-4D59-A43B-8326B3473E42</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Projetos\Easy_Harbour\easyharbour\easyharbour\easyharbour.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Properties\" />
     <Folder Include="wwwroot\" />
