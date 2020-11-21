@@ -38,9 +38,11 @@ namespace easyharbour
         {
             services.AddTransient<TabuaMareRepositorio, TabuaMareRepositorio>();
             services.AddTransient<ImportacaoRepositorio, ImportacaoRepositorio>();
+            services.AddTransient<AtracacaoRepositorio, AtracacaoRepositorio>();
 
             services.AddTransient<ImportacaoServico, ImportacaoServico>();
             services.AddTransient<TabuaMareServico, TabuaMareServico>();
+            services.AddTransient<AtracacaoServico, AtracacaoServico>();
 
             services.AddTransient<ClimaServico, ClimaServico>(options => new ClimaServico(Configuration["Clima:Url"], Configuration));
 
