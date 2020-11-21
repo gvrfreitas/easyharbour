@@ -31,7 +31,7 @@ namespace easyharbour.Servico
                 
             }
 
-            _repositorio.Importar();
+           await _repositorio.Importar();
         }
     }
 }

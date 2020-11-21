@@ -12,5 +12,7 @@ namespace easyharbour.Common
         public const string Erro500 = "Ops! Ocorreu um erro durante a execução do processo. ";
 
         public const string VerboHttpNaoMapeado = "Verbo request não mapeado.";
+
+        public const string NaoEncontrado = "Registro não encontrado.";
     }
 }

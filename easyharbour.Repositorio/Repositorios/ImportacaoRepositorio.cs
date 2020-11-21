@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using VLI.SIOP.Operacao.Dados;
 
 namespace easyharbour.Repositorio
@@ -9,9 +10,9 @@ namespace easyharbour.Repositorio
         {
         }
 
-        public void Importar()
+        public async Task Importar()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
