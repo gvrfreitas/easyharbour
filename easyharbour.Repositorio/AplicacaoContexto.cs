@@ -30,6 +30,7 @@ namespace VLI.SIOP.Operacao.Dados
         public DbSet<TabuaMare> TabuaMares { get; set; }
         public DbSet<Atracacao> Atracacao { get; set; }
         public DbSet<BercoGrao> BercosGraos { get; set; }
+        public DbSet<Viagem> Viagens { get; set; }
 
     }
 }

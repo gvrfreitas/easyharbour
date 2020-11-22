@@ -13,5 +13,10 @@ namespace easyharbour.Models
         public DateTime DataCadastro { get; set; }
 
         public string Descritivo { get; set; }
+
+        public double Draft { get; set; }
+
+        public double Beam { get; set; }
+
     }
 }

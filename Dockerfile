@@ -25,7 +25,7 @@ ENV EASY_HARBOUR_STRINGCONEXAO__PADRAO="Data Source=tcp:easy-harbour.database.wi
 ENV EASY_HARBOUR_CLIMA__CIDADE="36358"
 ENV EASY_HARBOUR_CLIMA__APIKEY="wNWiX03ul6Xp9NrlU9jbK8EQTru9hLaw"
 ENV EASY_HARBOUR_CLIMA__URL="http://dataservice.accuweather.com/"
-ENV EASY_HARBOUR_ORIGENSPERMITIDAS="http://localhost:3000, https://easyharbour-web.azurewebsites.net, https://ecstatic-saha-e36f57.netlify.app/"
+ENV EASY_HARBOUR_ORIGENSPERMITIDAS="http://localhost:3000, https://easyharbour-web.azurewebsites.net, https://ecstatic-saha-e36f57.netlify.app"
 
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
@@ -43,7 +43,7 @@ RUN true
 COPY ["easyharbour.Servico/easyharbour.Servico.csproj", "easyharbour.Servico/"]
 RUN true
 
-
+WORKDIR /src
 RUN dotnet restore "easyharbour.Api/easyharbour.Api.csproj"
 COPY . .
 WORKDIR "/src/easyharbour"
