@@ -1,4 +1,6 @@
-﻿using System;
+﻿using easyharbour.DTO;
+using System;
+using System.Collections.Generic;
 using VLI.SIOP.Operacao.Dados;
 
 namespace easyharbour.Repositorio
@@ -9,7 +11,7 @@ namespace easyharbour.Repositorio
         {
         }
 
-        public void Importar()
+        public void Importar(List<AtracacaoDto> listaAtracacoes)
         {
             throw new NotImplementedException();
         }
