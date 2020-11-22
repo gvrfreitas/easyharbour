@@ -1,4 +1,5 @@
-﻿using easyharbour.Dados.Repositorios;
+﻿using easyharbour.Common;
+using easyharbour.Dados.Repositorios;
 using easyharbour.DTO;
 using System;
 using System.Collections.Generic;
@@ -38,18 +39,33 @@ namespace easyharbour.Servico
             var codigoviagens = listaAtracados.Select(o => o.Viagem).ToList();
             var viagens = await _viagemRepositorio.ObterViagens(codigoviagens);
 
-
             foreach (var item in viagens)
-            { 
-            
+            {
+                var atracacao = listaAtracados.FirstOrDefault(m => m.Viagem == item.Codigo);
+
+                var lineUp = new LineUpDto()
+                {
+                    Datachegada = atracacao.AvisoChegada,
+                    Berco = item.BercoGrao.Nome,
+                    Navio = item.Navio.Descritivo,
+                    Calado = item.Navio.Draft,
+                    Capacidade = item.Quantidade,
+                    Largura = item.Navio.Largura,
+                    Produto = item.TipoProduto.GetDescription(),
+                    TempoEspera = DateTime.Now.Subtract(atracacao.AvisoChegada).ToString("HH:mm:ss"),
+                    AtracacaoPrevista = atracacao.PrevisaoAtracacao,
+                };
+
+                lstRetorno.Add(lineUp);
             }
+
+            var indexPosicao = 0;
+            foreach (var item in lstRetorno.OrderBy(o => o.Datachegada))
+                item.Posicao = (++indexPosicao);
 
             return lstRetorno;
 
         }
-
-
-
 
     }
 }

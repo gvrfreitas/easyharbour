@@ -6,16 +6,18 @@ namespace easyharbour.DTO
 {
     public class LineUpDto
     {
-        public string Posicao { get; set; }
+        public int Posicao { get; set; }
         public string Navio { get; set; }
-        public string Calado { get; set; }
-        public string Largura { get; set; }
-        public string Datachegada { get; set; }
+        public double Calado { get; set; }
+        public double Largura { get; set; }
+        public DateTime Datachegada { get; set; }
         public string TempoEspera { get; set; }
         public string Produto { get; set; }
-        public string Capacidade { get; set; }
+        public Double Capacidade { get; set; }
         public string Prioridade { get; set; }
-        public string AtracacaoSugerida { get; set; }
+        public DateTime? AtracacaoSugerida { get; set; }
+        public DateTime? AtracacaoPrevista { get; set; }
+
         public string Berco { get; set; }
     }
 }

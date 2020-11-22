@@ -14,5 +14,9 @@ namespace easyharbour.DTO
         public double Draft { get; set; }
 
         public double Beam { get; set; }
+
+        public double Largura { get; set; }
+
+        
     }
 }

@@ -28,6 +28,8 @@ namespace easyharbour.Dados.Repositorios
         public async Task<List<ViagemDto>> ObterViagens(List<string> codigos)
         {
             return await Contexto.Viagens
+                .Include(o => o.BercoGrao)
+                .Include(o => o.Navio)
                 .Where(m => codigos.Contains(m.Codigo))
                    .Select(o => BindTo(o))
                    .ToListAsync();

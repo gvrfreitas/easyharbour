@@ -18,5 +18,7 @@ namespace easyharbour.Models
 
         public double Beam { get; set; }
 
+        public double Largura { get; set; }
+
     }
 }
