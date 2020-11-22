@@ -22,7 +22,7 @@ namespace easyharbour.Servico
         {
             var listAtracacoes = await _dadosAtracacaoServico.ObterDados(file0.OpenReadStream());            
 
-            _repositorio.Importar(listAtracacoes);
+           await  _repositorio.Importar(listAtracacoes);
         }
     }
 }

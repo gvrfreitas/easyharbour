@@ -23,14 +23,13 @@ namespace easyharbour.Servico
                 {
                     var dado = new AtracacaoDto()
                     {
-                        Id = Guid.NewGuid(),
                         Navio = ws.Cells["C" + index].Value.ToString(),
                         Viagem = ws.Cells["D" + index].Value.ToString(),
                         Operador = ws.Cells["F" + index].Value.ToString(),
                         AvisoChegada = DateTime.Parse(ws.Cells["G" + index].Value.ToString()),
                         Autorizacao = ws.Cells["H" + index] != null ? DateTime.MinValue : DateTime.Parse(ws.Cells["H" + index].Value.ToString()),
-                        PrevisaoAtracacao = ws.Cells["I" + index] != null ? DateTime.MinValue : DateTime.Parse(ws.Cells["I" + index].Value.ToString()),
-                        AtracacaoEfetiva = ws.Cells["J" + index] != null ? DateTime.MinValue : DateTime.Parse(ws.Cells["J" + index].Value.ToString()),
+                        PrevisaoAtracacao = ws.Cells["I" + index].Value == null ? DateTime.MinValue : DateTime.Parse(ws.Cells["I" + index].Value.ToString()),
+                        AtracacaoEfetiva = ws.Cells["J" + index].Value == null ? DateTime.MinValue : DateTime.Parse(ws.Cells["J" + index].Value.ToString()),
                         Desatracacao = ws.Cells["K" + index] != null ? DateTime.MinValue : DateTime.Parse(ws.Cells["K" + index].Value.ToString()),
                         Fundiado = false,
                         EmOperacao = false
