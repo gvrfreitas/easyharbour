@@ -1,17 +1,10 @@
-﻿using easyharbour.Models;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 using static easyharbour.Common.Enumeradores;
 
-namespace easyharbour.Model
+namespace easyharbour.DTO
 {
-
-    [Table("Viagens")]
-    public class Viagem
+    public class ViagemDto
     {
-
-        [Key]
         public Guid Id { get; set; }
 
         public string Codigo { get; set; }
@@ -29,13 +22,5 @@ namespace easyharbour.Model
         public double Quantidade { get; set; }
 
         public Status Status { get; set; }
-
-        [ForeignKey("NavioId")]
-        public virtual Navio Navio { get; set; }
-
-
-        [ForeignKey("BercoGraoId")]
-        public virtual BercoGrao BercoGrao { get; set; }
-
     }
 }

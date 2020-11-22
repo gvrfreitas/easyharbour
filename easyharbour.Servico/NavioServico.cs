@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace easyharbour.Servico
 {
-    public class NaviooServico
+    public class NavioServico
     { 
 
         public NavioRepositorio _navioRepositorio;
 
-        public NaviooServico(NavioRepositorio navioRepositorio)
+        public NavioServico(NavioRepositorio navioRepositorio)
         {
             _navioRepositorio = navioRepositorio;
         }
