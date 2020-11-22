@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using easyharbour.Common;
 using easyharbour.Dados.Repositorios;
 
@@ -39,10 +40,13 @@ namespace easyharbour
             services.AddTransient<TabuaMareRepositorio, TabuaMareRepositorio>();
             services.AddTransient<ImportacaoRepositorio, ImportacaoRepositorio>();
             services.AddTransient<AtracacaoRepositorio, AtracacaoRepositorio>();
+            services.AddTransient<BercoGraoRepositorio, BercoGraoRepositorio>();            
 
             services.AddTransient<ImportacaoServico, ImportacaoServico>();
             services.AddTransient<TabuaMareServico, TabuaMareServico>();
             services.AddTransient<AtracacaoServico, AtracacaoServico>();
+            services.AddTransient<BercoGraoServico, BercoGraoServico>();
+            
 
             services.AddTransient<ClimaServico, ClimaServico>(options => new ClimaServico(Configuration["Clima:Url"], Configuration));
 
@@ -68,6 +72,19 @@ namespace easyharbour
                         }
                     }
                 );
+            });
+
+            // Habilita Cross-Domain. Libera aplicação para ser consumida por outros domínios.
+            var configOrigens = Configuration["OrigensPermitidas"];
+            var origensPermitidas = configOrigens?.Split(',').Select(a => a.Trim()).ToArray();
+            services.AddCors(options =>
+            {
+                options.AddPolicy(Constantes.EasyHarbour, builder =>
+                {
+                    builder.WithOrigins(origensPermitidas)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
             });
         }
 

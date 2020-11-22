@@ -14,5 +14,7 @@ namespace easyharbour.Common
         public const string VerboHttpNaoMapeado = "Verbo request não mapeado.";
 
         public const string ErroLeituraExcel = "Arquivo não pôde ser lido.";
+
+        public const string NaoEncontrado = "Registro não encontrado.";
     }
 }

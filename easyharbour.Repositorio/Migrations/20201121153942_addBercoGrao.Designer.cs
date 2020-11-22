@@ -3,51 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VLI.SIOP.Operacao.Dados;
 
 namespace easyharbour.Dados.Migrations
 {
     [DbContext(typeof(AplicacaoContexto))]
-    partial class AplicacaoContextoModelSnapshot : ModelSnapshot
+    [Migration("20201121153942_addBercoGrao")]
+    partial class addBercoGrao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("easyharbour.Model.Atracacao", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime?>("AtracacaoEfetiva");
-
-                    b.Property<DateTime?>("Autorizacao");
-
-                    b.Property<DateTime>("AvisoChegada");
-
-                    b.Property<DateTime?>("Desatracacao");
-
-                    b.Property<bool>("EmOperacao");
-
-                    b.Property<bool>("Fundiado");
-
-                    b.Property<string>("Navio");
-
-                    b.Property<string>("Operador");
-
-                    b.Property<DateTime?>("PrevisaoAtracacao");
-
-                    b.Property<int>("Viagem");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Atracacoes");
-                });
 
             modelBuilder.Entity("easyharbour.Model.TabuaMare", b =>
                 {

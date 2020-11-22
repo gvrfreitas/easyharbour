@@ -22,5 +22,20 @@ namespace easyharbour.Servico
             return await _tabuaMareRepositorio.Obter();
         }
 
+        public async Task<TabuaMareDto> ObterPorId(Guid id)
+        {
+            return await _tabuaMareRepositorio.ObterPorId(id);
+        }
+
+        public async Task<bool> Cadastrar(TabuaMareDto dto)
+        {
+            return await _tabuaMareRepositorio.Cadastrar(dto);
+        }
+
+        public async Task<bool> Editar(TabuaMareDto dto)
+        {
+            return await _tabuaMareRepositorio.Editar(dto);
+        }
+
     }
 }
