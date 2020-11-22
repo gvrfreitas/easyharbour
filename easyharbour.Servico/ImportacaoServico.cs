@@ -10,28 +10,19 @@ namespace easyharbour.Servico
     public class ImportacaoServico
     {
         private readonly ImportacaoRepositorio _repositorio;
+        private readonly DadosAtracaoServico _dadosAtracacaoServico;
 
-
-        public ImportacaoServico(ImportacaoRepositorio repositorio)
+        public ImportacaoServico(ImportacaoRepositorio repositorio, DadosAtracaoServico dadosAtracacao)
         {
             _repositorio = repositorio;
+            _dadosAtracacaoServico = dadosAtracacao;
         }
 
-        public async Task AssociarFichaComposicao(IFormFile file0)
+        public async Task ObterDadosAtracacao(IFormFile file0)
         {
-            string linha;
-            var fileReader = new StreamReader(file0.OpenReadStream());
-            while ((linha = fileReader.ReadLine()) != null)
-            {
-                var registros = linha.Split(';');
-                if(registros.Count() > 2)
-                {
-                  
-                }
-                
-            }
+            var listAtracacoes = await _dadosAtracacaoServico.ObterDados(file0.OpenReadStream());            
 
-           await _repositorio.Importar();
+            _repositorio.Importar(listAtracacoes);
         }
     }
 }
