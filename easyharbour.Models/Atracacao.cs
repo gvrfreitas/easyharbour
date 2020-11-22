@@ -16,7 +16,7 @@ namespace easyharbour.Model
 
         public string Operador { get; set; }
 
-        public int Viagem { get; set; }
+        public string Viagem { get; set; }
 
         public DateTime AvisoChegada { get; set; }
 

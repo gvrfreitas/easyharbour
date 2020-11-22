@@ -82,9 +82,7 @@ namespace easyharbour.Repositorio
             model.Nome = dto.Nome;
             model.DataCadastro = dto.DataCadastro;
             model.Prancha = dto.Prancha;
-         }      
-
-
+        }
 
         public async Task<BercoGraoDto> ObterPorId(Guid id)
         {

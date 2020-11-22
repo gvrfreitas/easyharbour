@@ -29,11 +29,11 @@ namespace easyharbour.Api.Controllers
         [HttpPost]
         [Route("v1/importacao/atracacoes-programadas")]
         [SwaggerOperation(OperationId = "53b636ca-9bc9-4382-911a-d0e7514575fc")]
-        public async Task<IActionResult> UploadFichaComposicao([FromForm] IFormFile file0)
+        public async Task<IActionResult> Uploadatracacoes([FromForm] IFormFile file0)
         {
             try
             {
-                await _importacaoServico.AssociarFichaComposicao(file0);
+                await _importacaoServico.ObterDadosAtracacao(file0);
                 return Ok(MensagensSistema.OperacaoOk);
             }
             catch (RegraDeNegocioException e)
@@ -41,7 +41,7 @@ namespace easyharbour.Api.Controllers
             
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500));
             }

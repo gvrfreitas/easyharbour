@@ -63,30 +63,6 @@ namespace easyharbour.Dados.Migrations
                     b.ToTable("TabuaMares");
                 });
 
-            modelBuilder.Entity("easyharbour.Models.BercoGrao", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CaladoMaximoTrecho");
-
-                    b.Property<double>("CalaodAlta");
-
-                    b.Property<double>("CalaodBaixa");
-
-                    b.Property<double>("Comprimento");
-
-                    b.Property<DateTime>("DataCadastro");
-
-                    b.Property<string>("Nome");
-
-                    b.Property<double>("Prancha");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BercosGraos");
-                });
-
             modelBuilder.Entity("easyharbour.Models.Navio", b =>
                 {
                     b.Property<Guid>("Id")

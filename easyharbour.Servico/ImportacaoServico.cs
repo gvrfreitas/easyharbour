@@ -18,7 +18,7 @@ namespace easyharbour.Servico
             _dadosAtracacaoServico = dadosAtracacao;
         }
 
-        public async Task AssociarFichaComposicao(IFormFile file0)
+        public async Task ObterDadosAtracacao(IFormFile file0)
         {
             var listAtracacoes = await _dadosAtracacaoServico.ObterDados(file0.OpenReadStream());            
 
