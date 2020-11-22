@@ -1,41 +1,40 @@
-﻿using easyharbour.Common;
+﻿using System;
+using System.Threading.Tasks;
+using easyharbour.Common;
 using easyharbour.Servico;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System;
-using System.Threading.Tasks;
 
 namespace easyharbour.Api.Controllers
 {
+   
     [ApiController]
-    public class AtracacaoController : BaseController
+    public class ConsultasController : BaseController
     {
-        private readonly AtracacaoServico _atracacaoServico;
+        private readonly ConsultasServico _consultasServico;
 
-        public AtracacaoController(AtracacaoServico atracacaoServico)
+        public ConsultasController(ConsultasServico consultasServico)
         {
-            _atracacaoServico = atracacaoServico;
+            _consultasServico = consultasServico;
         }
 
 
         /// <summary>
-        /// Realiza a importação das atracações programadas.
+        /// Obtém dados para a lineup programada.
         /// </summary>
-        /// <param name="file0">Arquivo CSV.</param>
-        /// <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        /// <returns>Lista de viaens para o lineup.</returns>
         [HttpGet]
-        [Route("v1/atracacao")]
-        [SwaggerOperation(OperationId = "1D3DC722-F6DF-4E98-A449-E4EB2EAC80FF")]
-        public async Task<IActionResult> Obter()
+        [Route("v1/consultas/fundeados")]
+        [SwaggerOperation(OperationId = "B35130BF-7952-4045-ADEE-4C250292102E")]
+        public async Task<IActionResult> ObterFundeados()
         {
             try
             {
-                var retorno = await _atracacaoServico.Obter();
+                var retorno = await _consultasServico.ObterFundeados();
                 return Ok(retorno);
             }
             catch (RegraDeNegocioException e)
             {
-
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
             }
             catch (Exception)
@@ -44,24 +43,23 @@ namespace easyharbour.Api.Controllers
             }
         }
 
+
         /// <summary>
-        /// Realiza a importação dos navios fundiados.
+        /// Obtém dados para a lineup otimizada.
         /// </summary>
-        /// <param name="file0">Arquivo CSV.</param>
-        /// <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        /// <returns>Lista de viaens para o lineup.</returns>
         [HttpGet]
-        [Route("v1/atracacao/navios-fundiados")]
-        [SwaggerOperation(OperationId = "99C5B5EE-5ABA-4EE8-B0AA-3588754FA603")]
-        public async Task<IActionResult> ObterNaviosFundiados()
+        [Route("v1/consultas/fundeados-otimizado")]
+        [SwaggerOperation(OperationId = "8F307FA9-91D8-4149-B5AA-3964123978DC")]
+        public async Task<IActionResult> ObterFundeadosOtimizado()
         {
             try
             {
-                var retorno = await _atracacaoServico.ObterNaviosFundiados();
+                var retorno = await _consultasServico.ObterFundeadosOtimizado();
                 return Ok(retorno);
             }
             catch (RegraDeNegocioException e)
             {
-
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
             }
             catch (Exception)
@@ -70,24 +68,23 @@ namespace easyharbour.Api.Controllers
             }
         }
 
+
         /// <summary>
-        /// Realiza a improtação dos navios em atracacao.
+        /// Obtém dados para a lineup de operacao.
         /// </summary>
-        /// <param name="file0">Arquivo CSV.</param>
-        /// <returns>Mensagem de sucesso ou fracasso da operação.</returns>
+        /// <returns>Lista de viaens para o lineup.</returns>
         [HttpGet]
-        [Route("v1/atracacao/navios-em-atracacao")]
-        [SwaggerOperation(OperationId = "9EC08313-55CA-4842-B53B-C4BB2A4001E3")]
-        public async Task<IActionResult> ObterNaviosEmOperacao()
+        [Route("v1/consultas/operacao")]
+        [SwaggerOperation(OperationId = "11BB179C-2BA7-4194-A5D7-491245711571")]
+        public async Task<IActionResult> ObterOperacao()
         {
             try
             {
-                var retorno = await _atracacaoServico.ObterNaviosEmOperacao();
+                var retorno = await _consultasServico.ObterOperacao();
                 return Ok(retorno);
             }
             catch (RegraDeNegocioException e)
             {
-
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
             }
             catch (Exception)

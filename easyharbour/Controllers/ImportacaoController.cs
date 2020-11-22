@@ -41,7 +41,7 @@ namespace easyharbour.Api.Controllers
             
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500));
             }

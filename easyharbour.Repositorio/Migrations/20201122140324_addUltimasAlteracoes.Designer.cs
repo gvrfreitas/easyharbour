@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VLI.SIOP.Operacao.Dados;
 
 namespace easyharbour.Dados.Migrations
 {
     [DbContext(typeof(AplicacaoContexto))]
-    partial class AplicacaoContextoModelSnapshot : ModelSnapshot
+    [Migration("20201122140324_addUltimasAlteracoes")]
+    partial class addUltimasAlteracoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

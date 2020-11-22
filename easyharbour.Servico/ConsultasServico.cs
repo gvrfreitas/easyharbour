@@ -67,6 +67,18 @@ namespace easyharbour.Servico
 
         }
 
+        
+        public async Task<List<LineUpDto>> ObterFundeadosOtimizado()
+        {
+            var lstRetorno = await ObterFundeados();
+            return await ListaOtimizada(lstRetorno);
+        }
+
+
+        private Task<List<LineUpDto>> ListaOtimizada(List<LineUpDto> lstRetorno)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<List<OperacaoDto>> ObterOperacao()
         {
@@ -100,7 +112,6 @@ namespace easyharbour.Servico
             }
 
             return lstRetorno;
-
         }
 
     }
