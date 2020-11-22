@@ -22,6 +22,13 @@ namespace easyharbour.Servico
             return await _tabuaMareRepositorio.Obter();
         }
 
+
+        public async Task<List<TabuaMareDto>> ObterPorData(DateTime data)
+        {
+            return await _tabuaMareRepositorio.ObterPorData(data);
+        }
+
+
         public async Task<TabuaMareDto> ObterPorId(Guid id)
         {
             return await _tabuaMareRepositorio.ObterPorId(id);
@@ -36,6 +43,12 @@ namespace easyharbour.Servico
         {
             return await _tabuaMareRepositorio.Editar(dto);
         }
+
+        public async Task<bool> Excluir(Guid id)
+        {
+            return await _tabuaMareRepositorio.Excluir(id);
+        }
+
 
     }
 }

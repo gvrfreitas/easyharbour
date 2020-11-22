@@ -45,6 +45,12 @@ namespace easyharbour.Servico
             return await _bercoGraoRepositorio.Editar(dto);
         }
 
+        public async Task<bool> Excluir(Guid id)
+        {
+            return await _bercoGraoRepositorio.Excluir(id);
+        }
+
+
 
 
     }

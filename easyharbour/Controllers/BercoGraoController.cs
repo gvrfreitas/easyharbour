@@ -26,10 +26,10 @@ namespace easyharbour.Api.Controllers
         /// <summary>
         /// Obtém todos os berços cadastrados
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista de registros cadastrados no sistema.</returns>
         [HttpGet]
         [Route("v1/berco-graos/obter")]
-        [SwaggerOperation(OperationId = "C63336BB-915E-45AF-B68C-A80DEE5F4209")]
+        [SwaggerOperation(OperationId = "DE1428B7-78DB-4004-A797-AC21B84B375E")]
         public async Task<IActionResult> Obter()
         {
             try
@@ -50,13 +50,13 @@ namespace easyharbour.Api.Controllers
 
 
         /// <summary>
-        /// Obtém todos os berços cadastrados
+        /// Obtém um berço especifico cadastrado no sistema
         /// <paramref name="id"> Identificador do registro no sistema</paramref>
         /// </summary>
-        /// <returns>registro cadastrado no sistema.</returns>
+        /// <returns>Registro cadastrado no sistema.</returns>
         [HttpGet]
         [Route("v1/berco-graos/obter-por-id")]
-        [SwaggerOperation(OperationId = "37267319-BF77-4EB9-90AE-270FB5FB1C66")]
+        [SwaggerOperation(OperationId = "0213EA37-B13F-4162-ADA8-C012A3912FA4")]
         public async Task<IActionResult> ObterPorId(Guid id)
         {
             try
@@ -76,13 +76,13 @@ namespace easyharbour.Api.Controllers
         }
 
         /// <summary>
-        /// Obtém todos os berços cadastrados
-        /// <paramref name="id"> Identificador do registro no sistema</paramref>
+        /// Realiza o cadastro de um berço novo
+        /// <paramref name="dto"> Json com atributos do registro </paramref>
         /// </summary>
-        /// <returns>registro cadastrado no sistema.</returns>
+        /// <returns>Booleano identificando se o item foi cadastrado com sucesso.</returns>
         [HttpPost]
         [Route("v1/berco-graos/cadastrar")]
-        [SwaggerOperation(OperationId = "E8159F26-CC90-423A-8E5B-78F4AC8BD938")]
+        [SwaggerOperation(OperationId = "ABA89DC5-AEF9-42FE-B280-05F2A867B4EE")]
         public async Task<IActionResult>Cadastrar(BercoGraoDto dto)
         {
             try
@@ -103,18 +103,45 @@ namespace easyharbour.Api.Controllers
 
 
         /// <summary>
-        /// Obtém todos os berços cadastrados
-        /// <paramref name="id"> Identificador do registro no sistema</paramref>
+        /// Altera o cadastro de um berço específico
+        /// <paramref name="dto"> Json com atributos do registro </paramref>
         /// </summary>
-        /// <returns>registro cadastrado no sistema.</returns>
+        /// <returns>Booleano identificando se o item foi editado com sucesso.</returns>
         [HttpPost]
         [Route("v1/berco-graos/editar")]
-        [SwaggerOperation(OperationId = "BB093906-6CB2-4CC9-BFCA-71A58B50C400")]
+        [SwaggerOperation(OperationId = "20EA1E60-B46F-4771-8446-712D639A8C7F")]
         public async Task<IActionResult> Editar(BercoGraoDto dto)
         {
             try
             {
                 var retorno = await _bercoGraoServico.Editar(dto);
+                return Ok(retorno);
+            }
+            catch (RegraDeNegocioException e)
+            {
+
+                return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500RegraNegocio + e.Message));
+            }
+            catch (Exception)
+            {
+                return BadRequest(new ResultadoOperacao(false, MensagensSistema.Erro500));
+            }
+        }
+
+
+        /// <summary>
+        /// Remove um berço cadastrado
+        /// <paramref name="id"> Identificador do registro no sistema</paramref>
+        /// </summary>
+        /// <returns>Booleano identificando se o item foi excluido com sucesso.</returns>
+        [HttpDelete]
+        [Route("v1/berco-graos/excluir")]
+        [SwaggerOperation(OperationId = "A00A37B3-36C4-4E39-9B06-10C7CB46D300")]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            try
+            {
+                var retorno = await _bercoGraoServico.Excluir(id);
                 return Ok(retorno);
             }
             catch (RegraDeNegocioException e)
